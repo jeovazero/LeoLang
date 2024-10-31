@@ -11,12 +11,27 @@ In this paper, we present the core of a purely functional programming language w
 imperative look-and-feel and with a type and effect system based on that of Leijen's Koka. 
 We also discuss our initial results with a prototype implementation and a type and effect inference algorithm.
 ```
-requirements: 
-  - stack
-  - some text editor
-  - graphviz to show the CFG in visual mode (.dot files) 
+
+## Requirements: 
+
+- cabal v3
+- some text editor
+- graphviz to show the CFG in visual mode (.dot files) 
   
-to run:
-  - edit `test.lc` file
-  - on terminal: `stack build and stack exec lambdaC`
-  
+## To run with cabal v3:
+
+1. Edit `test.lc` file
+
+2. on terminal run:
+
+```shell
+$ cabal build
+$ cabal run
+```
+
+## To run with Nix (Optional)
+
+```
+$ nix run
+```
+

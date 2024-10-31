@@ -1,3 +1,5 @@
 .stack-work/
 TE-Infer-SSA.cabal
 *~
+result
+dist-newstyle/

@@ -3,6 +3,7 @@ module Lambda.Calculus where
 
 import Data.List
 import Control.Monad.RWS
+import Control.Monad (when)
 import qualified Data.Set as S
 import qualified Data.Map as M
 import Debug.Trace
