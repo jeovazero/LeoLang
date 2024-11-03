@@ -4,6 +4,7 @@ module SingleAssignment where
 import Data.Maybe
 import Control.Monad.RWS.Lazy
 import Control.Monad.State.Lazy
+import Control.Monad (when, foldM)
 import Debug.Trace
 import qualified Parser as P
 import qualified BasicBlock as B

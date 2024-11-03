@@ -7,6 +7,7 @@ import Control.Monad.State
 import Control.Monad.Reader
 import Control.Monad.Except
 import Control.Monad.Identity
+import Control.Monad (when, replicateM, foldM)
 import qualified Data.Map as M
 import qualified Data.Set as S
 import qualified Lambda.Calculus as C
@@ -254,11 +255,12 @@ infer env (C.Handler eff branches e) = do
     epsilon <- newTypeVar
     -- First, we have to check the return type of our pure expression, which
     -- always take just one argument
-    (theta_p, tau_p, C.Generic _) <- case pure of
-                                         Just expr ->
-                                            infer env expr
-                                         Nothing ->
-                                            infer env (C.Lambda "" (C.Free ""))
+    inferred <- case pure of
+                    Just expr ->
+                       infer env expr
+                    Nothing ->
+                       infer env (C.Lambda "" (C.Free ""))
+    let (theta_p, tau_p, C.Generic _) = inferred
     -- traceM $ show (theta_p, tau_p)
     -- We have to check which is the return type of the pure expression
     tau_x1 <- newTypeVar
